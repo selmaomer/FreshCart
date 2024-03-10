@@ -1,1 +1,75 @@
+
+
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+3:wght@600&display=swap');
+:root{
+--main-color:#0aad0a;
+--light-color:#f0f3f2;
+--rating-color:#ffc908;
+--font-family:"Encode Sans Expanded", sans-serif;
+
+}
+body{
+    font-family:var(--font-family)!important;}
+.nav-link{
+    transition:unset!important;
+    }
+    
+        cursor-pointer{
+            cursor: pointer;
+        }
+  a,a:hover{
+    color:black;
+    text-decoration:none;}
+    .product{
+        border-radius: 5px;
+        border:solid 1px var(--main -color); 
+        transition:box-shadow 0.5s;
+        overflow: hiden;
+
+    }
+
+    
+.product:hover{
+    box-shadow: 0 0 10px #11bd116B;
+    }
+ .font-sm{
+        font-size:12px;}
+ .text-main{
+   color:var(--main-color)!important;
+                    }
+     .bg-main-light{
+        background-color:var(--light-color)!important;}
+     .btn-main{
+        background-color:var(--main-color);
+        padding:7px 20px;
+        border-radius:5px ;
+        color:#fff;
+        cursor:pointer;
+        transition: background-color 0,5 s;
+        
+     }
+
+     .btn-main:disabled{
+        cursor: not-allowed;
+        background-color: #CCC;}
+
+        .btn-main:hover{
+            background-color: #11bd11;
+
+        }
+.active-link{
+    color:#fff! important;
+    background-color: var(--main-color)!important;
+    border-radius:5px !important;
+}
+.itemp{
+    padding-right:2rem;
+}
+.product .btn-main{transform:translateY(300%);
+    transition:transform 1s;
+opacity: 0;}
+.product:hover .btn-main{
+ transform:translateY(-40%);
+   opacity: 1;
+}

@@ -1,0 +1,69 @@
+
+<!--main slider-->
+<section>
+   <div class="row g-0">
+<div class="col-md-10">
+   <owl-carousel-o [options]="mainSliderOption">
+     
+      <ng-template carouselSlide><img src="./assets/image/main-slider-1.jpeg" height="400" alt="" alt=""> </ng-template>  
+      <ng-template carouselSlide><img src="./assets/image/main-slider-2.jpeg"height="400" alt=""> </ng-template>  
+      <ng-template carouselSlide><img src="./assets/image/main-slider-3.jpeg" height="400" alt=""> </ng-template>  
+ 
+</owl-carousel-o>
+</div>
+
+<div class="col-md-2">
+<img src="./assets/image/sideimag1.jpg" height="200" alt="">
+<img src="./assets/image/sideimag2.jpg"height="200">
+   
+</div>
+  </div>
+  
+</section>
+
+<section class="my-3">
+
+   <owl-carousel-o [options]="CategoriesSliderOption">
+ 
+     <ng-container *ngFor="let item of categories">
+       <ng-template carouselSlide >
+       <div>
+<img [src]="item.image"  height="250" class="w-100" [alt]="item.name"/>
+<h3 class="h5">{{item.name}}</h3>
+        </div>
+       </ng-template>
+     </ng-container>
+ 
+   </owl-carousel-o>
+
+</section>
+<!--PRODUCT-->
+<section>
+   <input type="search" class="form-control w-50 mx-auto my-3" placeholder="search..."
+   [(ngModel)]="searchTerm"/>
+   <div class="row g-4 mb-3">
+            <div class=" col-12 col-md-6 col-lg-3 " *ngFor="let item of products|slice:0:18 |search:searchTerm">
+                 <div class="product text-center">
+                  <i  role="button" (click)="removefav(item._id)" class="fa-solid fa-heart-circle-xmark fa-xl" style="color: #de7882;"></i>
+            <div class="p-2"  [routerLink]="['/details',item._id]">
+               <img [src]="item.imageCover"  class="w-100" [alt]="item.title">
+            <h3 class ="h6">{{item.category.name}} </h3>
+            <h3 class="h6">{{item.title.split(" ").slice(0,2).join("")}}</h3>
+            <div class="d-flex align-item-center justify-content-between mb-2">
+<span class="itemp me-auto ">{{item.price}}EGP</span>
+<div>
+   <i class="fas fa-star rating-color"  style="color:#DAA520"></i>
+      <span class="text-muted ">{{item.ratingsAverage}}</span>
+  
+</div>
+            </div>
+          
+         </div>
+         
+            <button (click)="AddCart(item._id)" class="btn-main  w-50"> +Add</button>
+           <span><i  role="button" (click)="addfav(item._id)" class="fa-solid fa-heart ms-auto"style="font-size:1.6rem"></i></span> 
+         </div>
+         </div>
+         </div>
+
+</section>

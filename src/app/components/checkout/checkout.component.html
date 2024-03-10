@@ -1,0 +1,25 @@
+
+    <section class="bg-main-light p-4 rounded shadow my-3">
+       
+        <form [formGroup]="orderForm"  (ngSubmit)="handleForm()">
+         <h1 class="h3">Checkout Session</h1>
+        <div class="form-item">
+        <label for="details">Details</label>
+        <input type="text"  formControlName="details" id="details" class="form-control" />
+    </div>`
+   
+        <div class="form-item">
+        <label for="phone">Phone</label>
+        <input  formControlName="phone" id="phone" type="tel" class="form-control" />
+    </div>
+   
+        <div class="form-item">
+        <label for="city">City</label>
+        <input  formControlName="city" id="city" type="text" class="form-control" />
+    </div>
+   
+       <button class="btn-main mt-2">checkout</button>
+    
+        </form>
+    
+</section>

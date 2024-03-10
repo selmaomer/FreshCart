@@ -1,0 +1,28 @@
+<section>
+<div class="row g-4 bg-light rounded my-5 py-5">
+    <h2 class=" text-muted text-center pt-3">My wish List</h2>
+   <div class=" col-12 col-md-6 col-lg-3 mt-5 mb-3" *ngFor="let item of products">
+      <div class="product text-center my-2">
+        <i role="button"  (click)="removefav(item._id)" class="fa-solid fa-heart-circle-xmark fa-xl" style="color: #de7882;"></i>
+         <div class="p-2"  [routerLink]="['/details',item._id]">
+            <img [src]="item.imageCover"  class="w-100" [alt]="item.title">
+         <h3 class ="h6">{{item.category.name}} </h3>
+         <h3 class="h6">{{item.title.split(" ").slice(0,2).join("")}}</h3>
+         <div class="d-flex align-item-center justify-content-between mb-2">
+<span class="itemp me-auto ">{{item.price}}EGP</span>
+<div>
+<i class="fas fa-star rating-color"  style="color:#DAA520"></i>
+   <span class="text-muted ">{{item.ratingsAverage}}</span>
+
+</div>
+         </div>
+       
+      </div>
+      
+         <button (click)="AddCart(item._id)" class="btn-main  w-50"> +Add</button>
+        <span><i (click)="addfav(item._id)" class="fa-solid fa-heart ms-auto"style="font-size:1.6rem"></i></span> 
+      </div>
+      </div>
+      </div>
+    
+</section>

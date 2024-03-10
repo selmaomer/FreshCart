@@ -1,0 +1,28 @@
+<section>
+  <input type="search" class="form-control w-50 mx-auto my-3" placeholder="search..."
+   [(ngModel)]="searchTerm"/>
+       <div class="row g-4 my-3">
+       <div class=" col-12 col-md-6 col-lg-3 " *ngFor="let item of products |search:searchTerm">
+          <div class="product text-center">
+                        <div class="p-2"  [routerLink]="['/details',item._id]">
+                <img [src]="item.imageCover"  class="w-100" [title]="item.title" [alt]="item.title">
+             <h3 class ="h6">{{item.category.name}} </h3>
+             <h3 class="h6">{{item.title.split(" ").slice(0,2).join("")}}</h3>
+             <div class="d-flex align-item-center justify-content-between mb-2">
+ <span class="itemp me-auto ">{{item.price}}EGP</span>
+ <div>
+    <i class="fas fa-star rating-color"  style="color:#DAA520"></i>s
+       <span class="text-muted ">{{item.ratingsAverage}}</span>
+   
+ </div>
+             </div>
+           
+          </div>
+          
+             <button (click)="AddCart(item._id)" class="btn-main  w-50"> +Add</button>
+            <span><i role="button" class="fa-solid fa-heart ms-auto"style="font-size:1.6rem"></i></span> 
+          </div>
+          </div>
+          </div>
+ 
+ </section>
