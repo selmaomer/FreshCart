@@ -16,11 +16,15 @@ constructor(private _EcomdataService:EcomdataService,private _CartService:CartSe
 products:Product[]=[];
 categories:any[]=[];
 searchTerm:string='';
+wishlistData:string[]=[];
 mainSliderOption: OwlOptions = {
   loop: true,
   mouseDrag: false,
   touchDrag: true,
   pullDrag: false,
+  autoplay:true,
+  autoplayTimeout:5000,
+  autoplaySpeed:1000,
   dots: true,
   navSpeed: 700,
   navText: ['', ''],
@@ -32,6 +36,11 @@ removefav(prodId:string|undefined):void{
   this._WhislistService.removewishList(prodId).subscribe({
   next:(response)=>{
     console.log(response)
+    this.wishlistData=response.data;
+    const newproductData=this.products.filter((item:any)=>this.wishlistData.includes(item._id))
+  console.log('before',newproductData)
+  console.log('after',newproductData)
+  this.products=newproductData;
   }
   })
 
@@ -62,6 +71,9 @@ CategoriesSliderOption: OwlOptions = {
   loop: true,
   mouseDrag: false,
   touchDrag: true,
+  autoplay:true,
+  autoplayTimeout:7000,
+  autoplaySpeed:1000,
   pullDrag: false,
   dots: false,
   navSpeed: 700,

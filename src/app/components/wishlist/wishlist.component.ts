@@ -13,6 +13,7 @@ import { WhislistService } from 'src/app/shared/services/whislist.service';
 export class WishlistComponent implements OnInit {
 constructor(private _WhislistService:WhislistService,private _:EcomdataService,private _ToastrService:ToastrService,private _CartService:CartService){}
 products:Product[]=[];
+wishlistData:string[]=[];
 addfav(prodId:string|undefined):void{
   this._WhislistService.addTowishList(prodId).subscribe({
   next:(response)=>{
@@ -24,7 +25,12 @@ addfav(prodId:string|undefined):void{
 removefav(prodId:string|undefined):void{
   this._WhislistService.removewishList(prodId).subscribe({
   next:(response)=>{
-    console.log(response)
+    console.log(response);
+    this.wishlistData=response.data;
+    const newproductData=this.products.filter((item:any)=>this.wishlistData.includes(item._id))
+  console.log('before',newproductData)
+  console.log('after',newproductData)
+  this.products=newproductData;
   }
   })
 

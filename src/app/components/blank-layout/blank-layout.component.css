@@ -1,0 +1,16 @@
+.main-section{
+padding-top:60px;
+}
+.btn-up{
+    position: fixed;
+    bottom:10px;
+    right:10px;
+    z-index: 99;
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    border:unset;
+    background-color: var(--main-color);
+    color: aliceblue;
+    font-size: 20px;
+}
